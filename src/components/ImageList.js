@@ -1,8 +1,10 @@
 import React from "react";
 
 const ImageList = (props) => {
-  const images = props.images.map((image) => {
-    return <img src={image.urls.regular} alt={image.tags.title} />;
+  const images = props.images.map(({ description, id, urls }) => {
+    return (
+      <img className="image" key={id} src={urls.regular} alt={description} />
+    );
   });
 
   return <div>{images}</div>;
